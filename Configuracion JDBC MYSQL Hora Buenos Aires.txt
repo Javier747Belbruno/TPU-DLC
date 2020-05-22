@@ -1,0 +1,1 @@
+jdbc:mysql://localhost:3307/mysql?serverTimezone=America/Buenos_Aires

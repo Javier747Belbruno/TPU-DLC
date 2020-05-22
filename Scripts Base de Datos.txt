@@ -1,0 +1,29 @@
+Me olvide de poner la de documentos pero es con la notacion que esta en la imagen de Geor,
+
+CREATE TABLE `corpus`.`terminos` (
+  `id_termino` INT NOT NULL AUTO_INCREMENT,
+  `palabra` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id_termino`),
+  UNIQUE INDEX `id_termino_UNIQUE` (`id_termino` ASC) VISIBLE)
+COMMENT = '			';
+
+CREATE TABLE `corpus`.`posteos` (
+  `id_documento` INT NOT NULL,
+  `id_termino` INT NOT NULL,
+  `frecuencia` INT NOT NULL,
+  PRIMARY KEY (`id_documento`, `id_termino`));
+
+ALTER TABLE `corpus`.`posteos` 
+ADD INDEX `id_termino_idx` (`id_termino` ASC) VISIBLE;
+;
+ALTER TABLE `corpus`.`posteos` 
+ADD CONSTRAINT `id_documento`
+  FOREIGN KEY (`id_documento`)
+  REFERENCES `corpus`.`documentos` (`id_documento`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `id_termino`
+  FOREIGN KEY (`id_termino`)
+  REFERENCES `corpus`.`terminos` (`id_termino`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;

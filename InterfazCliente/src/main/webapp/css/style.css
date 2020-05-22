@@ -1,0 +1,87 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 10 may. 2020, 18:28:10
+    Author     : Georgina
+*/
+body{
+	color: grey;
+	font-size: 13px;  /* cambia el tamaño de la letra */
+	margin: 0px
+
+}
+.logo{
+
+	padding: 20px;
+	width: 100px;
+
+}
+nav ul{
+	float: right;
+	margin-right: 20px;
+	padding: 20px;
+
+}
+nav ul li {
+	display: inline-block;
+}
+nav ul li a{
+	padding: 9px;
+	color: #BDBDBD;
+	text-transform: uppercase;
+}
+#buscar {
+    width: 500px;
+    height: 30px;
+}
+.form{
+    text-align: center;
+    margin-top: 0%;
+    position: absolute;
+    left: 30%;
+}
+
+.formSettings{
+position: absolute;
+margin-left: auto;
+margin-right: auto;
+left: 30%;
+right: 30%;
+text-align: center;
+
+}
+
+footer {
+    position:fixed;
+    left:0px;
+    bottom:10px;
+    height:40px;
+    width:100%;
+    background-color: orange;
+    color: white;
+    text-align: center;
+    padding: 1em;
+}
+.title {
+    font-size: 300%;
+    text-align: center;
+    
+}
+
+#myProgress {
+  width: 100%;
+  background-color: #ddd;
+}
+
+#myBar {
+  width: 10%;
+  height: 30px;
+  background-color: #4CAF50;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+}
+
