@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package main.dao;
 
 import java.util.List;
@@ -11,10 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import main.entity.Document;
 
-/**
- *
- * @author Javier
- */
 @Stateless
 public class DocumentDao extends AbstractDao<Document> {
 
@@ -25,7 +17,6 @@ public class DocumentDao extends AbstractDao<Document> {
         super(Document.class);
     }
 
-
     @Override
     public Document create(Document entity) {
        return super.create(entity);   
@@ -35,27 +26,22 @@ public class DocumentDao extends AbstractDao<Document> {
         super.edit(entity);
     }
 
-
     public void remove(Integer id) {
         super.remove(super.find(id));
     }
 
-
     public Document find( Integer id) {
         return super.find(id);
     }
-
 
     @Override
     public List<Document> findAll() {
         return super.findAll();
     }
 
-
     public List<Document> findRange(Integer from, Integer to) {
         return super.findRange(new int[]{from, to});
     }
-
 
     public String countREST() {
         return String.valueOf(super.count());

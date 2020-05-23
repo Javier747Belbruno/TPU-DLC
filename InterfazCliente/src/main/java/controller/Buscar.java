@@ -1,22 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.mycompany.interfazcliente.d;
 
+package controller;
+
+import model.httpGet;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.net.URLEncoder;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author Javier
- */
-public class AddDocument extends HttpServlet {
+
+
+public class Buscar extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,19 +24,23 @@ public class AddDocument extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet AddDocument</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet AddDocument at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        
+        String palabra = request.getParameter("txt_buscar");
+        String ts =  request.getParameter("typeSearch");
+        String ar =  request.getParameter("amountRetrive");
+        System.out.println("typeSearch = " +ts + " amountRetrive = " + ar );
+        String urlEncoded = URLEncoder.encode(palabra, "UTF-8");
+       
+        if(ts.isBlank() || ts.isEmpty() || ar.isBlank() || ar.isEmpty()){
+            ts = "1";
+            ar = "10";
         }
+        httpGet.ListObject[] m = httpGet.get("http://localhost:8080/SearchEngine-1.0/webresources/results/"+urlEncoded+"&"+ar+"&"+ts);
+        
+        request.setAttribute("palabra", palabra);
+        request.setAttribute("lista", m);
+        //This servlet control the view flows.
+        request.getRequestDispatcher("/results.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

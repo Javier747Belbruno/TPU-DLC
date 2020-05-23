@@ -2,15 +2,23 @@
 <web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
     <servlet>
         <servlet-name>Buscar</servlet-name>
-        <servlet-class>com.mycompany.interfazcliente.d.Buscar</servlet-class>
+        <servlet-class>controller.Buscar</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AddFile</servlet-name>
-        <servlet-class>com.mycompany.interfazcliente.d.AddFile</servlet-class>
+        <servlet-class>controller.AddFile</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>AddDocument</servlet-name>
-        <servlet-class>com.mycompany.interfazcliente.d.AddDocument</servlet-class>
+        <servlet-class>controller.AddDocument</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>lectorDocumento</servlet-name>
+        <servlet-class>controller.lectorDocumento</servlet-class>
+        <init-param>
+            <param-name>ruta</param-name>
+            <param-value>String</param-value>
+        </init-param>
     </servlet>
     <servlet-mapping>
         <servlet-name>Buscar</servlet-name>
@@ -23,6 +31,10 @@
     <servlet-mapping>
         <servlet-name>AddDocument</servlet-name>
         <url-pattern>/AddDocument</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>lectorDocumento</servlet-name>
+        <url-pattern>/lectorDocumento</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

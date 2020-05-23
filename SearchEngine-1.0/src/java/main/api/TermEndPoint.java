@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package main.api;
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 
 import java.util.List;
@@ -25,11 +16,6 @@ import javax.ws.rs.core.MediaType;
 import main.entity.Term;
 import main.dao.TermDao;
 
-
-/**
- *
- * @author Javier
- */
 
 @Path("term")
 public class TermEndPoint {
@@ -83,7 +69,5 @@ public class TermEndPoint {
         return String.valueOf(termFacadeREST.count());
     }
     
-    
 
-    
 }

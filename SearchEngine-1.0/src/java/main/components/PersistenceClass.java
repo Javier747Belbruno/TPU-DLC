@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package main.components;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import javax.annotation.ManagedBean;
 import javax.ejb.EJB;
@@ -19,10 +14,7 @@ import main.entity.Posting;
 import main.entity.PostingPK;
 import main.entity.Term;
 
-/**
- *
- * @author Javier
- */
+
 @ManagedBean
 @RequestScoped
 public class PersistenceClass {
@@ -32,26 +24,23 @@ public class PersistenceClass {
    @EJB private PostingDao pdao;
     
 public void LoadDataInDB(String nameDocument,HashMap<String,Integer> terms){
-    Document d = new Document(nameDocument);    
-    //DocumentDao ddao = new DocumentDao();
-    int saveIDDoc = ddao.create(d).getIdDocumento();//Create and return the object.
     
-     Iterator it = terms.keySet().iterator();
-       while(it.hasNext()){
-        String key = (String) it.next();
-        
-        int saveIDterm;
-        
-        if(tdao.retrieve(key)!=null){
-        saveIDterm = tdao.retrieve(key);  
-        }else{
-        Term t = new Term(key);    
-        saveIDterm = tdao.create(t).getIdTermino();//Create and return the object.
-        }
-        
-        Posting p = new Posting(new PostingPK(saveIDDoc,saveIDterm),terms.get(key));
-        pdao.create(p);
-        }
+    //persist Document and return id
+    Document d = new Document(nameDocument);    
+    int saveIDDoc = ddao.create(d).getIdDocumento();
+       for (String key : terms.keySet()) {
+           int saveIDterm;
+           //find Term, do persist and return id OR if found get and return id
+           if(tdao.retrieve(key)!=null){
+               saveIDterm = tdao.retrieve(key);
+           }else{
+               Term t = new Term(key);
+               saveIDterm = tdao.create(t).getIdTermino();
+           }
+           //persist a Posting
+           Posting p = new Posting(new PostingPK(saveIDDoc,saveIDterm),terms.get(key));
+           pdao.create(p);
+       }
     }
     
     public List<Posting> getAllPosting(){

@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.mycompany.interfazcliente.d;
 
-import com.mycompany.interfazcliente.d.HTTP.httpGet;
+package controller;
+
+import model.httpGet;
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.URLEncoder;
 import java.util.List;
 import java.util.logging.Level;
@@ -23,10 +18,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.commons.io.FilenameUtils;
 
-/**
- *
- * @author Javier
- */
+
 public class AddFile extends HttpServlet {
 
     /**
@@ -40,16 +32,16 @@ public class AddFile extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, Exception {
-    
+        
+    //Clases que necesitamos para tomar el archivo que viene del post del form jsp
     FileItemFactory factory = new DiskFileItemFactory();
     ServletFileUpload upload = new ServletFileUpload(factory);
 
-
+    StringBuilder informe = new StringBuilder();
     // req es la HttpServletRequest que recibimos del formulario.
     // Los items obtenidos serán cada uno de los campos del formulario,
     // tanto campos normales como ficheros subidos.
     List items = upload.parseRequest(request);
-
     // Se recorren todos los items, que son de tipo FileItem
     for (Object item : items) {
        FileItem uploaded = (FileItem) item;
@@ -70,22 +62,23 @@ public class AddFile extends HttpServlet {
                 fileNameShort = FilenameUtils.getName(fileNameShort);
             }
             File fichero = new File(System.getProperty("user.dir")+"/unprocessedfiles", fileNameShort);
-         
-          uploaded.write(fichero);
-          
-          request.setAttribute("cargaLocal", fichero.getAbsolutePath());
-          
-          String urlEncoded = URLEncoder.encode(fichero.getName(), "UTF-8");
-          uploaded.delete();
-          //Enviar Peticion para procesar.
-          httpGet.httpGetResponseFile("http://localhost:8080/WebApplication5/webresources/file/"+urlEncoded);
-          
+
+            //Create File
+            uploaded.write(fichero);
+             
+            informe.append("El archivo fue cargado en Servidor en Path: ").append(fichero.getAbsolutePath());
+            String urlEncoded = URLEncoder.encode(fichero.getName(), "UTF-8");
+            uploaded.delete();
+            //Enviar Peticion para procesar.
+            informe.append("\nSe envia señal al motor para que cargue el archivo. ").append("\nRespuesta del servidor: ");
+            
+            informe.append(httpGet.httpGetResponseFile("http://localhost:8080/SearchEngine-1.0/webresources/file/"+urlEncoded));
+
        } else {
-          // es un campo de formulario, podemos obtener clave y valor
-          String key = uploaded.getFieldName();
-          String valor = uploaded.getString();
+           informe.append("\nError al subir el archivo");
        }
       }
+     request.setAttribute("informe", informe.toString().replaceAll("_", " "));
      request.getRequestDispatcher("/loadDocument.jsp").forward(request, response);
     }
 

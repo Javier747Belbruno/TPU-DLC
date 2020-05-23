@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package main.components;
 
 import java.util.ArrayList;
@@ -13,24 +9,24 @@ import java.util.List;
 
 public class Tokenizer {
     
-  private final String separator = ",";  
+    private final String separator = ",";  
+    
     public Tokenizer(){
-    CreateHashSetStopWords();
+        CreateHashSetStopWords();
     }
     
     public HashSet<String> getTerms(String token){
-        
         //Three Steps.
         String cleanToken = ClearToken(token);
         List<String> dividedToken = DivideToken(cleanToken);
         HashSet<String> Terms = DeleteStopWords(dividedToken);
-        
+
         return Terms;
     }
      
     /** ClearToken 
-  * First: Removes special characters to the input 
-  * Second: Prepares for split token adding a comma between each word.*/ 
+    *First: Removes special characters to the input 
+    *Second: Prepares for split token adding a comma between each word.*/ 
     private String ClearToken(String s) {
     String cleanToken = s;
    for (char ch: "@#$%^?;&*=`():<>~\"][!+{}".toCharArray()) {
@@ -45,19 +41,18 @@ public class Tokenizer {
 /** DivideToken detects if a token has a separator 
  * and splits in two or more tokens */ 
 private List<String> DivideToken(String s) {
-   List<String> partsToken = new ArrayList<>();
-     if(s.contains(separator)){
-         partsToken = Arrays.asList(s.split(separator));
-      }
-     else{
-         partsToken.add(s);
-     }
-    return partsToken;
+    List<String> partsToken = new ArrayList<>();
+    if(s.contains(separator)){
+        partsToken = Arrays.asList(s.split(separator));
     }
+    else{
+        partsToken.add(s);
+    }
+    return partsToken;
+}
 
 private HashSet<String> DeleteStopWords(List<String> dividedStopWords){
     HashSet<String> hsLS = new HashSet<>();
-      
     for (String word : dividedStopWords) {
         if(!word.isBlank() || !word.isEmpty())
           {
@@ -70,7 +65,6 @@ private HashSet<String> DeleteStopWords(List<String> dividedStopWords){
     }
     return hsLS;
 }
-
 
 private static HashSet<String> hsSW = new HashSet<String>();
 private void CreateHashSetStopWords()

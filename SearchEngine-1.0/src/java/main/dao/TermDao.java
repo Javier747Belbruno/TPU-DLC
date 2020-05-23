@@ -1,29 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package main.dao;
 
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 import main.entity.Term;
 
-/**
- *
- * @author Javier
- */
+
 @Stateless
 public class TermDao extends AbstractDao<Term> {
 
@@ -56,9 +40,6 @@ public class TermDao extends AbstractDao<Term> {
     }
 
 
-
-
-
     @Override
     public List<Term> findAll() {
         return super.findAll();
@@ -74,8 +55,7 @@ public class TermDao extends AbstractDao<Term> {
         return String.valueOf(super.count());
     }
     
-    
-    
+
     public Integer retrieve(String term)
     {
         List<Term> resp = em.createNamedQuery("Term.findByPalabra")
