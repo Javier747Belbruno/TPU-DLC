@@ -11,6 +11,7 @@ import javax.annotation.ManagedBean;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import main.components.ManagerFilesClass;
+import main.components.VocabularyClass;
 
 
 @ManagedBean
@@ -18,7 +19,8 @@ import main.components.ManagerFilesClass;
 public class FileController {
     
     @Inject private ManagerFilesClass mfc;
-            
+    @Inject private VocabularyClass vc;      
+    
     public String procesarFile(String path){
         
         StringBuilder response = new StringBuilder();  
@@ -43,6 +45,7 @@ public class FileController {
             }
             File[] f = new File[1];f[0] = file;
             response.append(mfc.ProcessFiles(f));
+            vc.doFillVocabulary();//Actualizar vocab.
         } catch (Exception e) {
             response.append(e.getMessage());
         }

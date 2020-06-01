@@ -2,32 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Javier/Desktop/TPIgit/GIT/TPU-DLC/SearchEngine-1.0/src/java/main/components/RelevantDocumentsClass.java</file>
-            <file>file:/C:/Users/Javier/Desktop/TPIgit/GIT/TPU-DLC/SearchEngine-1.0/src/java/main/components/FileClass.java</file>
-            <file>file:/C:/Users/Javier/Desktop/TPIgit/GIT/TPU-DLC/SearchEngine-1.0/web/index.jsp</file>
-            <file>file:/C:/Users/Javier/Desktop/TPIgit/GIT/TPU-DLC/SearchEngine-1.0/src/java/main/components/ManagerFilesClass.java</file>
-            <file>file:/C:/Users/Javier/Desktop/TPIgit/GIT/TPU-DLC/SearchEngine-1.0/src/java/main/api/PostingEndPoint.java</file>
-            <file>file:/C:/Users/Javier/Desktop/TPIgit/GIT/TPU-DLC/SearchEngine-1.0/src/java/main/api/ApplicationConfig.java</file>
-            <file>file:/C:/Users/Javier/Desktop/TPIgit/GIT/TPU-DLC/SearchEngine-1.0/src/java/main/components/VocabularyClass.java</file>
-            <file>file:/C:/Users/Javier/Desktop/TPIgit/GIT/TPU-DLC/SearchEngine-1.0/src/java/main/controller/QueryController.java</file>
-            <file>file:/C:/Users/Javier/Desktop/TPIgit/GIT/TPU-DLC/SearchEngine-1.0/src/java/main/entity/Term.java</file>
-            <file>file:/C:/Users/Javier/Desktop/TPIgit/GIT/TPU-DLC/SearchEngine-1.0/src/java/main/api/ResultsEndPoint.java</file>
-            <file>file:/C:/Users/Javier/Desktop/TPIgit/GIT/TPU-DLC/SearchEngine-1.0/src/java/main/api/TermEndPoint.java</file>
-            <file>file:/C:/Users/Javier/Desktop/TPIgit/GIT/TPU-DLC/SearchEngine-1.0/src/java/main/controller/FileController.java</file>
-            <file>file:/C:/Users/Javier/Desktop/TPIgit/GIT/TPU-DLC/SearchEngine-1.0/src/java/main/components/InvertedIndexClass.java</file>
-            <file>file:/C:/Users/Javier/Desktop/TPIgit/GIT/TPU-DLC/SearchEngine-1.0/src/java/main/api/FileEndPoint.java</file>
-            <file>file:/C:/Users/Javier/Desktop/TPIgit/GIT/TPU-DLC/SearchEngine-1.0/src/java/main/entity/Posting.java</file>
-            <file>file:/C:/Users/Javier/Desktop/TPIgit/GIT/TPU-DLC/SearchEngine-1.0/src/java/ApplicationResource.properties</file>
-            <file>file:/C:/Users/Javier/Desktop/TPIgit/GIT/TPU-DLC/SearchEngine-1.0/src/java/main/dao/PostingDao.java</file>
-            <file>file:/C:/Users/Javier/Desktop/TPIgit/GIT/TPU-DLC/SearchEngine-1.0/src/java/main/entity/PostingPK.java</file>
-            <file>file:/C:/Users/Javier/Desktop/TPIgit/GIT/TPU-DLC/SearchEngine-1.0/src/java/main/components/PersistenceClass.java</file>
-            <file>file:/C:/Users/Javier/Desktop/TPIgit/GIT/TPU-DLC/SearchEngine-1.0/src/java/main/dao/AbstractDao.java</file>
-            <file>file:/C:/Users/Javier/Desktop/TPIgit/GIT/TPU-DLC/SearchEngine-1.0/src/java/main/components/Tokenizer.java</file>
-            <file>file:/C:/Users/Javier/Desktop/TPIgit/GIT/TPU-DLC/SearchEngine-1.0/src/java/main/api/DocumentEndPoint.java</file>
-            <file>file:/C:/Users/Javier/Desktop/TPIgit/GIT/TPU-DLC/SearchEngine-1.0/src/java/main/dao/DocumentDao.java</file>
-            <file>file:/C:/Users/Javier/Desktop/TPIgit/GIT/TPU-DLC/SearchEngine-1.0/src/java/main/dao/TermDao.java</file>
-            <file>file:/C:/Users/Javier/Desktop/TPIgit/GIT/TPU-DLC/SearchEngine-1.0/src/java/main/entity/Document.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
