@@ -21,10 +21,7 @@ import javax.ws.rs.core.PathSegment;
 import main.entity.Posteo;
 import main.entity.PosteoPK;
 
-/**
- *
- * @author Javier
- */
+
 @Stateless
 public class PosteoDao extends AbstractDao<Posteo> {
 
