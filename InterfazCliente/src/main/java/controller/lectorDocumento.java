@@ -28,7 +28,7 @@ public class lectorDocumento extends HttpServlet {
          String path = request.getParameter("ruta");
          String urlEncoded = URLEncoder.encode(path, "UTF-8");
          List<String> document;
-         document = httpGet.getDocument("http://localhost:8080/SearchEngine-1.0/webresources/file/reader/"+urlEncoded);
+         document = httpGet.getDocument("http://localhost:8080/MotorDeBusquedaTPU/webresources/file/reader/"+urlEncoded);
          request.setAttribute("document", document);
          request.getRequestDispatcher("/reader.jsp").forward(request, response);
     }

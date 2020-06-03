@@ -35,7 +35,7 @@ public class Buscar extends HttpServlet {
             ts = "1";
             ar = "10";
         }
-        httpGet.ListObject[] m = httpGet.get("http://localhost:8080/SearchEngine-1.0/webresources/results/"+urlEncoded+"&"+ar+"&"+ts);
+        httpGet.ListObject[] m = httpGet.get("http://localhost:8080/MotorDeBusquedaTPU/webresources/results/"+urlEncoded+"&"+ar+"&"+ts);
         
         request.setAttribute("palabra", palabra);
         request.setAttribute("lista", m);

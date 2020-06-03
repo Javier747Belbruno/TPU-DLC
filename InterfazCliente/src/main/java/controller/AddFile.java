@@ -72,7 +72,7 @@ public class AddFile extends HttpServlet {
             //Enviar Peticion para procesar.
             informe.append("\nSe envia señal al motor para que cargue el archivo. ").append("\nRespuesta del servidor: ");
             
-            informe.append(httpGet.httpGetResponseFile("http://localhost:8080/SearchEngine-1.0/webresources/file/"+urlEncoded));
+            informe.append(httpGet.httpGetResponseFile("http://localhost:8080/MotorDeBusquedaTPU/webresources/file/"+urlEncoded));
 
        } else {
            informe.append("\nError al subir el archivo");
